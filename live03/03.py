@@ -3,6 +3,15 @@ import os
 opcao = ""
 banco_dados = []
 
+def listar_tarefas ():
+    contador = 0
+    limpar_tela()
+    print ("-----")
+    for tarefa in banco_dados:
+        print (f"{contador} - {tarefa}")
+        print ("-----")
+        contador += 1
+
 def limpar_tela():
     os.system('cls')
 
@@ -11,17 +20,16 @@ def selecionar (opcao):
         tarefa = input ("Digite sua tarefa: ")
         banco_dados.append(tarefa)
     elif (opcao == "2"):
-        limpar_tela()
-        print ("-----")
-        for tarefa in banco_dados:
-            print (tarefa)
-            print ("-----")
+        listar_tarefas()
     elif (opcao == "3"):
-        print ("Excluindo tarefa...")
-
-
+        listar_tarefas()
+        tarefa = int(input ("Escolha a tarefa para excluir: "))
+        del banco_dados[tarefa]
     elif (opcao == "4"):
-        print ("Editando tarefa...")
+        listar_tarefas()
+        tarefa = int(input ("Escolha a tarefa para editar: "))
+        nova_tarefa = input ("Digite a nova tarefa: ")
+        banco_dados[tarefa] = nova_tarefa
     elif (opcao == "0"):
         print ("Saindo do sistema...")
     else:
