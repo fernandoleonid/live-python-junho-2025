@@ -5,7 +5,7 @@
 
 
 ano_atual = 2025
-nome = input ("Digite seu nome: ")
+nome = input("Digite seu nome: ")
 idade = int( input ("Digite sua idade: ") )
 
 ano_nascimento = ano_atual - idade
